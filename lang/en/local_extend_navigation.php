@@ -27,4 +27,9 @@
 $string['backtocourse'] = 'Back to the course';
 $string['backtocourse_icon'] = 'Icon';
 $string['backtocourse_icon_help'] = 'The icon must be a valid Font Awesome icon without the "fa-" prefix. For example "arrow-left"';
+$string['border'] = 'Border';
+$string['border_left'] = 'Left border';
+$string['border_left_right'] = 'Left and right border';
+$string['border_none'] = 'No border';
+$string['border_right'] = 'Right border';
 $string['pluginname'] = 'Extend navigation';

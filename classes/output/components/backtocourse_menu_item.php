@@ -32,6 +32,15 @@ namespace local_extend_navigation\output\components;
  * rendered using a template.
  */
 class backtocourse_menu_item implements \renderable, \templatable {
+    /** The left border of the menu item. */
+    public const BORDER_LEFT = '1';
+    /** The right border of the menu item. */
+    public const BORDER_RIGHT = '2';
+    /** The left and right border of the menu item. */
+    public const BORDER_LEFT_RIGHT = '3';
+    /** No border of the menu item. */
+    public const BORDER_NONE = '0';
+
     /** @var array The to be used in the mustache template */
     protected $data = [];
 
@@ -50,6 +59,26 @@ class backtocourse_menu_item implements \renderable, \templatable {
         $this->data['active'] = $active;
         $this->data['mobile'] = $mobile;
         $this->data['icon'] = $mycfg->backtocourse_icon ?? '';
+        $this->data['border'] = $this->get_border_class();
+    }
+
+    /**
+     * Returns the CSS class for the border of the "Back to Course" menu item based on the configuration.
+     *
+     * @return string The CSS class for the border.
+     */
+    protected function get_border_class() {
+        $mycfg = get_config('local_extend_navigation');
+        switch ($mycfg->backtocourse_border) {
+            case self::BORDER_LEFT:
+                return 'border-left';
+            case self::BORDER_RIGHT:
+                return 'border-right';
+            case self::BORDER_LEFT_RIGHT:
+                return 'border-left border-right';
+            case self::BORDER_NONE:
+                return 'border-0';
+        }
     }
 
     /**

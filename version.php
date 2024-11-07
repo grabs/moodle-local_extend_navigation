@@ -25,8 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version  = 2024110600;
-$plugin->release = '1.0 (2024110600)';
+$plugin->version  = 2024110700;
+$plugin->release = '1.1 (2024110700)';
 $plugin->requires = 2022111800;
 $plugin->maturity = MATURITY_STABLE;
 $plugin->component = 'local_extend_navigation';

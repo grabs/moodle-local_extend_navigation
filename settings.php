@@ -31,12 +31,35 @@ if ($hassiteconfig) {
     $ADMIN->add('localplugins', $settings);
 
     $configs = [];
+
+    $configs[] = new admin_setting_configselect(
+        'backtocourse_active',
+        get_string('active'),
+        '',
+        1,
+        [0 => get_string('no'), 1 => get_string('yes')]
+    );
+
     $configs[] = new admin_setting_configtext(
         'backtocourse_icon',
         get_string('backtocourse_icon', 'local_extend_navigation'),
         get_string('backtocourse_icon_help', 'local_extend_navigation'),
         'arrow-left',
         PARAM_NOTAGS
+    );
+
+    $options = [
+        '0' => get_string('border_none', 'local_extend_navigation'),
+        '1' => get_string('border_left', 'local_extend_navigation'),
+        '2' => get_string('border_right', 'local_extend_navigation'),
+        '3' => get_string('border_left_right', 'local_extend_navigation'),
+    ];
+    $configs[] = new admin_setting_configselect(
+        'backtocourse_border',
+        get_string('border', 'local_extend_navigation'),
+        '',
+        \local_extend_navigation\output\components\backtocourse_menu_item::BORDER_NONE,
+        $options
     );
 
     // Put all settings into the settings page.

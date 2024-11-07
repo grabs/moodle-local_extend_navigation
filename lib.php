@@ -30,7 +30,7 @@
 function local_extend_navigation_extend_navigation(global_navigation $navigation) {
     global $COURSE;
 
-    // Add the new 4.1 school admin panel.
+    // Add button to the navigation bar by using javascript.
     if (!empty($COURSE->id) && ($COURSE->id !== SITEID)) {
         \local_extend_navigation\navigation::add_backtocourse_menu();
     }

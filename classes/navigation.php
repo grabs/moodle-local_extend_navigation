@@ -44,6 +44,12 @@ class navigation {
     public static function add_backtocourse_menu() {
         global $COURSE, $PAGE;
 
+        // Check if the feature is active.
+        $mycfg = get_config('local_extend_navigation');
+        if (!$mycfg->backtocourse_active) {
+            return;
+        }
+
         if (!empty($COURSE->id) && ($COURSE->id !== SITEID)) {
             $context = \context_course::instance($COURSE->id);
             $url     = new \moodle_url('/course/view.php', ['id' => $COURSE->id]);
